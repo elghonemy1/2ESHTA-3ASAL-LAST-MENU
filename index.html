@@ -1,3 +1,4 @@
+
 <style>
     /* التنسيق الأساسي المعدل */
     .ramadan-decor {
@@ -30,7 +31,7 @@
     /* تعديلات الجوال */
     @media (max-width: 768px) {
         .ramadan-decor {
-            top: -3px;
+            top: 0px;
             height: 100px;
         }
     }
@@ -62,13 +63,11 @@
     }
 
     // تحميل الصورة مسبقًا (تأكد من استخدام الرابط المباشر للصورة الجديدة)
-    new Image().src = 'https://i.imgur.com/NEW_IMAGE_LINK.png';
+    new Image().src = 'https://i.imgur.com/KJ3u5K8.png';
 
     window.addEventListener('load', checkDate);
     setInterval(checkDate, 3600000); // التحقق كل ساعة
   </script>
-</body>
-</html>
 
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
@@ -608,9 +607,64 @@
     <a href="https://www.tiktok.com/@eshta.w.asal" class="contact-btn tiktok">
       <img src="https://i.imgur.com/64V1c8k.png" alt="TikTok Logo" class="contact-logo">
     </a>
-  </div>
+  </div>  
+<!-- عدد الزيارات -->
+<div class="visitor-counter" 
+     style="text-align: center;
+            font-family: 'Tajawal', sans-serif;
+            direction: rtl;
+            position: fixed;
+            bottom: 70px;
+            left: 10px;
+            z-index: 35;
+            background: #fba919;
+            padding: 5px 15px;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+            font-size: 12px;
+            animation: gentlePulse 2s infinite, slideIn 0.8s ease-out;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;">
   
-  <!-- زر المصمم مع نص "designed by" فوق اللوجو (في أسفل اليسار) -->
+  <!-- الأيقونة -->
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2">
+    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+    <circle cx="12" cy="12" r="3"></circle>
+  </svg>
+
+  <!-- النص -->
+  <div style="display: flex; align-items: center; gap: 5px;">
+    <span style="color: white; font-weight: 600;">
+      <span id="visitor-count">...</span>
+    </span>
+    <span style="color: rgba(255,255,255,0.9);">زيارة</span>
+  </div>
+</div>
+
+<style>
+  /* أنيميشن النبض الخفيف */
+  @keyframes gentlePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+  }
+
+  /* تصميم الجوال */
+  @media (max-width: 768px) {
+    .visitor-counter {
+      padding: 4px 12px;
+      font-size: 11px;
+      gap: 6px;
+    }
+    .visitor-counter svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+</style>
+ <!-- زر المصمم مع نص "designed by" فوق اللوجو (في أسفل اليسار) -->
   <div id="designer-button">
     <div class="designer-text">Designed by</div> <!-- النص فوق اللوجو -->
     <a href="https://www.facebook.com/profile.php?id=100054792170666">
@@ -721,8 +775,15 @@
     /* إضافة تعديل لتحسين معالجة الأخطاء:
        تمت إضافة تنبيه للمستخدم في حال حدوث خطأ أثناء تحميل الـ PDF */
     // تعريف مصفوفة أسماء الأصناف لكل صفحة
-    const productNames = [
-    // الصفحة 1 (الجديدة)
+const productNames = [
+    // الصفحة 1 الجديدة (الزمبهولا)
+    [
+        "الزمبهولا",
+        "زمبهولا",
+        "الزامبهولا",
+        "زامبهولا"
+    ],
+    // الصفحة 2
     [
         "فــــــــراولـــة مــانــجـــا",
         "مـــــــــــــــــــوز فراولـــــة",
@@ -743,11 +804,11 @@
         "عصاير رمضان",
         "عصائر رمضان"
     ],
-    // الصفحة 2
-    ["كيكة دبى"],
     // الصفحة 3
-    ["الفنكوش", "الشقلوبة"],
+    ["كيكة دبى"],
     // الصفحة 4
+    ["الفنكوش", "الشقلوبة"],
+    // الصفحة 5
     [
         "رز بلبن كلاسيك",
         "رز بلبن بالمكسرات",
@@ -767,7 +828,7 @@
         "رعشة قشطة وعسل",
         "القنبلة"
     ],
-    // الصفحة 5
+    // الصفحة 6
     [
         "طاجن أم على كلاسيك",
         "طاجن أم على الغندورة",
@@ -782,7 +843,7 @@
         "بليلة باللبن والقشطة",
         "بليلة باللبن والمكسرات والقشطة والبسبوسة"
     ],
-    // الصفحة 6
+    // الصفحة 7
     [
         "طاجن بطاطا قشطة وعسل",
         "طاجن بطاطا قشطة ولبن",
@@ -797,7 +858,7 @@
         "سالانكتيه أوريو نوتيلا",
         "سالانكتيه مانجا"
     ],
-    // الصفحة 7
+    // الصفحة 8
     [
         "النعنوشة",
         "قشطوطة مكسرات",
@@ -810,7 +871,7 @@
         "قشطوطة روشيه",
         "قشطوطة رفاييلو"
     ],
-    // الصفحة 8
+    // الصفحة 9
     [
         "جيلى",
         "جيلى كاستر",
@@ -827,7 +888,7 @@
         "كشرى أوريو نوتيلا",
         "كشرى مانجا"
     ],
-    // الصفحة 9
+    // الصفحة 10
     [
         "طاجن الحنين",
         "طاجن بوريو نوتيلا",
@@ -842,7 +903,7 @@
         "آيس كوفى مالتيزر",
         "آيس كوفى لوتس"
     ],
-    // الصفحة 10
+    // الصفحة 11
     [
         "عصاير فريش",
         "مانجو",
@@ -863,7 +924,7 @@
         "ليمون نعناع",
         "فروت سلاط"
     ],
-    // الصفحة 11
+    // الصفحة 12
     [
         "ميلك شيك فانيليا",
         "ميلك شيك شيكولاته",
@@ -879,7 +940,7 @@
         "ميلك شيك كراميل",
         "ميلك شيك لوتس"
     ],
-    // الصفحة 12
+    // الصفحة 13
     [
         "سموزى بطيخ",
         "سموزى أناناس",
@@ -897,7 +958,7 @@
         "موز كراميل",
         "ميكس فواكه"
     ],
-    // الصفحة 13
+    // الصفحة 14
     [
         "زبادى توت",
         "زبادى عسل",
@@ -915,7 +976,7 @@
         "آيس كريم سبيشال",
         "آيس كريم فستق"
     ],
-    // الصفحة 14
+    // الصفحة 15
     [
         "عصاير شوكلاته",
         "أوريو",
@@ -934,28 +995,29 @@
 ];
 
     // عناوين الصفحات الرئيسية
-    const pageTitles = [
-      "عصاير رمضان",
-      "كيكة دبى",
-      "الفنكوش والشقلوبة",
-      "عالم الرز بلبن",
-      "عالم أم على وميكسات الدفا",
-      "عالم البطاطا والسالانكتيه",
-      "القشطوطة",
-      "دزيرت و كشرى حلو",
-      "طواجن السعادة والآيس كوفي",
-      "عصائر فريش",
-      "ميلك شيك",
-      "ميكس جوس وسموزي",
-      "زبادى خلاط & آيس كريم & موهيتو",
-      "شوكليت جوس"
-    ];
+const pageTitles = [
+    "الزمبهولا", 
+    "عصاير رمضان", 
+    "كيكة دبى", 
+    "الفنكوش والشقلوبة",
+    "عالم الرز بلبن",
+    "عالم أم على وميكسات الدفا",
+    "عالم البطاطا والسالانكتيه",
+    "القشطوطة",
+    "دزيرت و كشرى حلو",
+    "طواجن السعادة والآيس كوفي",
+    "عصائر فريش",
+    "ميلك شيك",
+    "ميكس جوس وسموزي",
+    "زبادى خلاط & آيس كريم & موهيتو",
+    "شوكليت جوس"
+];
 
     // متغير لتتبع الصفحة الحالية في المودال
     let currentPage = 0;
 
     // رابط ملف PDF
-    const url = 'https://cdn.jsdelivr.net/gh/elghonemy1/ramadan-pd@main/ramadan%20menu.pdf';
+    const url = 'https://cdn.jsdelivr.net/gh/elghonemy1/RAMADAN0@main/RAMADAN0.pdf';
     const container = document.getElementById('pdf-container');
     let pdfDoc = null;
 
@@ -1030,32 +1092,37 @@
       document.getElementById('modal-overlay').style.display = 'none';
     });
 
-    // دالة توحيد الحروف العربية للبحث (إضافة جديدة)
-    function normalizeArabic(text) {
-      return text
-        .replace(/[أآإ]/g, 'ا')
-        .replace(/ة/g, 'ه')
-        .replace(/ـ/g, '')
-        .replace(/[ًٌٍَُِّ~ْ]/g, '');
-    }
-
+function normalizeArabic(text) {
+  return text
+    .replace(/[إأٱآ]/g, 'ا')
+    .replace(/[ى]/g, 'ي')
+    .replace(/[ة]/g, 'ه')
+    .replace(/[ؤئ]/g, 'ء')
+    .replace(/[ًٌٍَُِّْ]/g, '') // إزالة التشكيل
+    .replace(/\s+/g, ' ') // إزالة المسافات الزائدة
+    .trim();
+}
     // وظيفة البحث (تم التعديل)
-    document.getElementById('search-input').addEventListener('input', function(e) {
-      const searchTerm = normalizeArabic(e.target.value.toLowerCase());
-      const pages = document.querySelectorAll('.pdf-page');
-      pages.forEach((page, index) => {
-        const pageProducts = productNames[index];
-        const normalizedProducts = pageProducts.map(p => normalizeArabic(p.toLowerCase()));
-        if (normalizedProducts.some(product => product.includes(searchTerm))) {
-          page.style.display = 'block';
-          if (searchTerm !== "") {
-            page.scrollIntoView({ behavior: 'smooth' });
-          }
-        } else {
-          page.style.display = 'none';
-        }
-      });
-    });
+document.getElementById('search-input').addEventListener('input', function(e) {
+  const searchTerm = normalizeArabic(e.target.value.toLowerCase());
+  const pages = document.querySelectorAll('.pdf-page');
+  
+  pages.forEach((page, index) => {
+    const pageProducts = productNames[index];
+    if (!pageProducts) return; // تجنب الخطأ
+    
+    const normalizedProducts = pageProducts.map(p => normalizeArabic(p.toLowerCase()));
+    if (normalizedProducts.some(product => product.includes(searchTerm))) {
+      page.style.display = 'block';
+      if (searchTerm !== "") {
+        page.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      page.style.display = 'none';
+    }
+  });
+});
+
 
     // فتح نافذة الاقتراحات
     document.getElementById('suggestions-button').addEventListener('click', function() {
@@ -1172,5 +1239,40 @@
         $scope.searchTerm = "";
       }]);
   </script>
-</body>
-</html>
+<<script type="module">
+  // استيراد مكتبات Firebase الضرورية
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+  import { getDatabase, ref, onValue, set, increment } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+
+  // تكوين Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyBYu8HZgnLOMzC58qcWbInnIV4QDMVnUfA",
+  authDomain: "eshta-ves.firebaseapp.com",
+  databaseURL: "https://eshta-ves-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "eshta-ves",
+  storageBucket: "eshta-ves.firebasestorage.app",
+  messagingSenderId: "6642490457",
+  appId: "1:6642490457:web:62e95e62cdec94824b2548",
+  measurementId: "G-NVKT8F8LFG"
+};
+
+  // بدء تشغيل Firebase
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+  const visitorCountRef = ref(database, 'totalVisits');
+  
+  // تحديث العداد مع كل زيارة
+  function updateVisitorCount() {
+    // زيادة العداد مع كل زيارة، حتى لو كانت من نفس الجهاز
+    set(visitorCountRef, increment(1));
+  }
+
+  // الاستماع لتغييرات عدد الزوار
+  onValue(visitorCountRef, (snapshot) => {
+    const visitorCount = snapshot.val() || 0;
+    document.getElementById('visitor-count').textContent = visitorCount.toLocaleString('ar-EG');
+  });
+
+  // تحديث العداد عند زيارة الصفحة
+  updateVisitorCount();
+</script>
